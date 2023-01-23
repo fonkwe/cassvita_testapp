@@ -1,33 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+// import wretch from "wretch";
+import { corsWretch } from "../helpers/wretchCores";
 
 const CreateUser = () => {
   const router = useRouter();
 
-  const createUser = async (e: any) => {
-    try {
-      e.preventDefault();
-      const { email, password, confirmPassword } = e.target;
-      const user = await axios.post(
-        "https://cassvita-backend.onrender.com/api/v1/auth/addUser",
-        {
-          email: email.value,
-          password: password.value,
-          passwordConfirm: confirmPassword.value,
-        }
-      );
-    } catch (err) {
-      console.log("Error creating user", err);
-    }
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-    // console.log("Email", e.target.email.value);
+  const createUser = async (e: any) => {
+    e.preventDefault();
+    const { email, password, confirmPassword } = e.target;
+    setLoading(true);
+    await corsWretch
+      .url("https://cassvita-backend.onrender.com/api/v1/auth/add-user")
+      .post({
+        email: email.value,
+        password: password.value,
+        passwordConfirm: confirmPassword.value,
+      })
+      .res((response) => {
+        response.json().then((data) => {
+          // if (data.status === "Success") {
+          setLoading(false);
+          console.log("Data", data);
+          // }
+        });
+      })
+      .catch((err) => {
+        console.log("Error creating user: ", err.message);
+        setError("User was not created");
+        setLoading(false);
+      });
   };
+
+  // useEffect(() => {
+  //   setTimeout(() => {})
+  // }, [])
 
   return (
     <div>
+      <h2>Create a user</h2>
+      {loading && <p>Creating user...</p>}
       <form onSubmit={createUser}>
-        <h2>Create a user</h2>
         <input type="text" placeholder="Emial" name="email" required /> <br />
         <input
           type="password"

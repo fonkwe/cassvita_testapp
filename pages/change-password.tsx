@@ -3,11 +3,11 @@ import axios from "axios";
 
 const ChangePassword = () => {
   const passwordUpdate = async (e: any) => {
+    e.preventDefault();
+    const { oldPassword, newPassword, confirmNewPassword } = e.target;
     try {
-      e.preventDefault();
-      const { oldPassword, newPassword, confirmNewPassword } = e.target;
       const response = await axios.post(
-        "https://cassvita-backend.onrender.com/api/v1/users/updatePassword",
+        "https://cassvita-backend.onrender.com/api/v1/users/update-password",
         {
           oldPassword: oldPassword.value,
           newPassword: newPassword.value,
@@ -30,14 +30,14 @@ const ChangePassword = () => {
           placeholder="Old password"
           name="oldPassword"
           required
-        />{" "}
+        />
         <br />
         <input
           type="password"
           placeholder="New password"
           name="newPassword"
           required
-        />{" "}
+        />
         <br />
         <input
           type="password"
