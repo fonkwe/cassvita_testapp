@@ -5,12 +5,18 @@ import { corsWretch } from "../helpers/wretchCores";
 import { useDispatch } from "react-redux";
 import { login } from "../src/store";
 
+const base_url = process.env.NEXT_PUBLIC_BASE_URL;
+
 const Login = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+
+ 
+
+  console.log("Base URL: ", base_url);
 
   // User login function
   const userLogin = async (e: any) => {
@@ -24,7 +30,7 @@ const Login = () => {
 
     // Sending a post request with wretch
     await corsWretch
-      .url("https://cassvita-backend.onrender.com/api/v1/auth/login")
+      .url(`${base_url}/auth/login`)
       .post({
         email: email.value,
         password: password.value,
