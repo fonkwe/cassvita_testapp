@@ -14,8 +14,6 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
- 
-
   console.log("Base URL: ", base_url);
 
   // User login function
@@ -54,10 +52,9 @@ const Login = () => {
   };
 
   return (
-    <div className=" m-auto w-1/2 mt-10">
+    <div className=" grid h-screen place-items-center">
       {loading && <p>Loggin in...</p>}
 
-      <h2 className="">Login</h2>
       {error ? (
         <p>
           {errorMessage}
@@ -67,28 +64,30 @@ const Login = () => {
         </p>
       ) : (
         <form onSubmit={userLogin}>
+          <h1 className=" heading mb-3">Login</h1>
+          <p className=" sub-heading mb-7">Login to Cassvita</p>
+          <label className=" sub-heading">Email</label> <br />
           <input
-            className=" border rounded-sm"
+            className=" inputs"
             type="email"
             placeholder="Email"
             name="email"
           />
           <br />
+          <label className=" sub-heading">Password</label> <br />
           <input
-            className=" border rounded-sm"
+            className=" inputs"
             type="password"
             placeholder="Password"
             name="password"
           />
           <br />
-          <Link className=" underline text-xs" href="/forget-password">
+          <p className=" paragraph">Enter a valid email address and password</p>
+          {/* <Link className=" underline text-xs" href="/forget-password">
             Forgot password?
-          </Link>
+          </Link> */}
           <br />
-          <button
-            className=" bg-blue-500 hover:bg-blue-700 text-white p-1 rounded text-sm"
-            type="submit"
-          >
+          <button className=" btn-active w-full" type="submit">
             Login
           </button>
         </form>
