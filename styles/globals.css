@@ -38,4 +38,7 @@
   .btn-inactive {
     @apply text-[var(--primary)] 
   }
+  .side-bar-links {
+    @apply flex items-center p-2 text-base font-normal text-[var(--primary-text-color)] rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700
+  }
 }
