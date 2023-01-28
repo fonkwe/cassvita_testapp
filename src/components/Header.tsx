@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div className=" bg-white flex justify-between border-[var(--primary-text-color)] shadow-md py-1 px-6 fixed top-0 right-0 left-64 z-50">
+    <div className=" bg-white flex justify-between border-[var(--primary-text-color)] shadow-md py-2 px-6 fixed top-0 right-0 left-64 z-50">
       <div>
         <p className=" sub-heading">search</p>
       </div>

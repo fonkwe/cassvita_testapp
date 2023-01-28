@@ -53,7 +53,7 @@ const Login = () => {
 
   return (
     <div className=" grid h-screen place-items-center">
-      {loading && <p>Loggin in...</p>}
+      {/* {loading && <p>Loggin in...</p>} */}
 
       {error ? (
         <p>
@@ -83,12 +83,9 @@ const Login = () => {
           />
           <br />
           <p className=" paragraph">Enter a valid email address and password</p>
-          {/* <Link className=" underline text-xs" href="/forget-password">
-            Forgot password?
-          </Link> */}
           <br />
           <button className=" btn-active w-full" type="submit">
-            Login
+            {loading ? "Loggin in..." : "Login"}
           </button>
         </form>
       )}

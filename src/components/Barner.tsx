@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Barner() {
   return (
-    <section className=" flex justify-between p-6 mt-6">
+    <section className=" flex justify-between p-6 mt-10">
       <div>
         <h1 className=" heading">Products</h1>
       </div>
