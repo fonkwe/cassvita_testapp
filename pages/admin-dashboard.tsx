@@ -4,133 +4,57 @@ import { useSelector } from "react-redux";
 import Header from "../src/components/Header";
 import Barner from "../src/components/Barner";
 import Item from "../src/components/Item";
+import Image from "next/image";
+import Customer from "../src/components/Customer";
 
 const AdminDashboard = () => {
   const { user } = useSelector((state: any) => state.user);
-
+  type itemsTypes = {
+    image: string;
+    title: string;
+    description: string;
+    updated: string;
+  };
   const items = [
     {
-      icon: "icon",
-      title: "Title",
+      image:
+        "/image/dropdown.png",
+      title: "Dropbox",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       updated: "updated 30m ago",
     },
     {
-      icon: "icon",
-      title: "Title",
+      image: "/image/medium.png",
+      title: "Medium",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       updated: "updated 30m ago",
     },
     {
-      icon: "icon",
-      title: "Title",
+      image: "/image/slack.jpg",
+      title: "Slack",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       updated: "updated 30m ago",
     },
     {
-      icon: "icon",
-      title: "Title",
+      image: "/image/dropdown.png",
+      title: "Dropbox",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       updated: "updated 30m ago",
     },
     {
-      icon: "icon",
-      title: "Title",
+      image: "/image/slack.jpg",
+      title: "Slack",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       updated: "updated 30m ago",
     },
     {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
-      updated: "updated 30m ago",
-    },
-    {
-      icon: "icon",
-      title: "Title",
+      image: "/image/medium.png",
+      title: "Medium",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
       updated: "updated 30m ago",
@@ -138,24 +62,48 @@ const AdminDashboard = () => {
   ];
   console.log("Login info :", user);
   return (
-    <div className=" ml-64 bg-slate-50">
+    <div className="container ml-64 bg-slate-50">
       <Header />
       <Barner />
-      <section>
-        <div className=" grid grid-cols-4 gap-x-0 gap-y-10">
+      <Customer />
+      <section className="container bg-slate-100 h-screen">
+        <div className=" grid grid-cols-3 gap-2">
           {items &&
-            items.map((item: any, i: any) => (
-              <div key={i} className=" ">
-                <Item
-                  key={i}
-                  icon={item.icon}
-                  title={item.title}
-                  description={item.description}
-                  updated={item.updated}
-                />
-              </div>
+            items.map((item: itemsTypes) => (
+              <Item
+                key={item.title}
+                image={item.image}
+                title={item.title}
+                description={item.description}
+                updated={item.updated}
+              />
             ))}
         </div>
+        <div className="flex justify-center mt-10">
+           <nav aria-label="Page navigation example">
+    <ul className="flex list-style-none">
+      <li className="page-item"><a
+          className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 focus:shadow-none"
+          href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a></li>
+      <li className="page-item"><a
+          className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">1</a></li>
+      <li className="page-item"><a
+          className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">2</a></li>
+      <li className="page-item"><a
+          className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#">3</a></li>
+      <li className="page-item"><a
+          className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a></li>
+    </ul>
+  </nav>
+</div>
       </section>
 
       <aside
@@ -278,6 +226,7 @@ const AdminDashboard = () => {
               </a>
             </li>
           </ul>
+          
           {/* <div
             id="dropdown-cta"
             className="p-4 mt-6 rounded-lg bg-blue-50 dark:bg-blue-900"
@@ -320,7 +269,15 @@ const AdminDashboard = () => {
               Turn new navigation off
             </a>
           </div> */}
+          {/* <div className="items-end">
+              <p className="text-white-500 font-bold">Need more Features?</p>
+              <Image src="/image/download.jpeg" alt="" width={250} height={250} />
+              <button className="bg-green-500 text-black w-full font-bold p-4 mt-3 rounded opacity-50 cursor-not-allowed">
+                 Button
+              </button>
+          </div> */}
         </div>
+        
       </aside>
     </div>
   );

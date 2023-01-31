@@ -1,15 +1,16 @@
 import React from "react";
+import { BellAlertIcon, BellIcon, MagnifyingGlassIcon, UserCircleIcon, UserIcon } from '@heroicons/react/24/solid'
 
 export default function Header() {
   return (
-    <div className=" bg-white flex justify-between border-[var(--primary-text-color)] shadow-md py-1 px-6 fixed top-0 right-0 left-64 z-50">
+    <div className=" bg-white flex justify-between border-[var(--primary-text-color)] shadow-md p-5 px-6 fixed top-0 right-0 left-64 z-50">
       <div>
-        <p className=" sub-heading">search</p>
+        <MagnifyingGlassIcon className="h-5 w-5"/>
       </div>
-      <div className=" flex">
-        <p className=" sub-heading">usr</p>
-        <p className=" px-3 sub-heading">no</p>
-        <img className=" rounded-full w-5 h-5" src="https://cdn.pixabay.com/photo/2017/01/31/21/23/avatar-2027366__340.png" alt="Profile" />
+      <div className="flex items-center space-x-2">
+        <BellAlertIcon className="h-5 w-5"/>
+        <UserIcon className="h-5 w-5" />
+        <UserCircleIcon className="h-5 w-5" />
       </div>
     </div>
   );
