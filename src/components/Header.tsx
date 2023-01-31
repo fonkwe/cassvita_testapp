@@ -3,7 +3,7 @@ import { BellAlertIcon, BellIcon, MagnifyingGlassIcon, UserCircleIcon, UserIcon 
 
 export default function Header() {
   return (
-    <div className=" bg-white flex justify-between border-[var(--primary-text-color)] shadow-md py-1 px-6 fixed top-0 right-0 left-64 z-50">
+    <div className=" bg-white flex justify-between border-[var(--primary-text-color)] shadow-md py-5 px-6 fixed top-0 right-0 left-64 z-50">
       <div>
         <MagnifyingGlassIcon className="h-5 w-5"/>
       </div>
