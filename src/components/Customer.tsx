@@ -8,7 +8,7 @@ export default function Customer() {
                   <div className="grid place-items-left h-full w-20 text-gray-300">
                     <fieldset className="border border-solid w-20 border-gray-300 p-1 m-5 rounded-lg">
                      <legend className="text-sm text-black-200 ">Search Customer</legend>
-                                 <MagnifyingGlassIcon className="h-8 w-8"/>
+                                 <MagnifyingGlassIcon className="h-8 w-8 m-2"/>
                               <input
                                 type="text"
                                 id="search"
