@@ -88,7 +88,7 @@ const AdminDashboard = () => {
           <span aria-hidden="true">&laquo;</span>
         </a></li>
       <li className="page-item"><a
-          className="page-link relative block py-1.5 px-3 rounded-full bg-blue-500 border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+          className="page-link relative block py-1.5 px-3 rounded-full bg-blue-500 border-0 bg-transparent outline-none transition-all duration-300  text-white hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
           href="#">1</a></li>
       <li className="page-item"><a
           className="page-link relative block py-1.5 px-3 rounded border-0 bg-transparent outline-none transition-all duration-300  text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
