@@ -7,10 +7,10 @@ export default function Header() {
       <div>
         <MagnifyingGlassIcon className="h-5 w-5"/>
       </div>
-      <div className="flex items-center space-x-2">
-        <BellAlertIcon className="h-5 w-5"/>
-        <UserIcon className="h-5 w-5" />
-        <UserCircleIcon className="h-5 w-5" />
+      <div className="flex items-center space-x-3">
+        <BellAlertIcon className="h-8 w-8"/>
+        <UserIcon className="h-8 w-8" />
+        <UserCircleIcon className="h-8 w-8" />
       </div>
     </div>
   );
